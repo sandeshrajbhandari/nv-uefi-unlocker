@@ -188,5 +188,7 @@ uninitialized card; confirm happens on the iGPU panel (MUX-less), and the unlock
 every full power-off (stick-armed marker optional). MUX-less Optimus machines should also expect the screen to
 stay dark between confirm and Windows boot. GA104M `249d` ([#28](https://github.com/physicsdolphin/nv-uefi-unlocker/issues/28))
 is the adjacent AMD-platform mobile evidence; the confirm flow differs there (dGPU-direct) and this run reused the
-warm-resume visible panel of the connected iGPU. Performance tier still pending follow-up ALU-verification numbers.
+warm-resume visible panel of the connected iGPU. Performance is verified by a same-boot ssdiag-anchored torch GEMM
+A/B: tensor per-clock gain 1.78–2.25× (absolute 1.53–1.74× under the 130 W board cap), FP32 strict control flat,
+numerical error unchanged — the same full-power segmentation clamp as other GA10x mobiles.
 Sources: [GA102M field report](evidence/ga102m-249c-g533qs/report.md).

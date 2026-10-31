@@ -55,11 +55,41 @@ span) success with an operator-visible warm-resume confirm prompt and a clean th
    for re-applying after cold boots, when needed — the unlock is volatile (per power cycle) and must be re-applied
    after every full power-off.
 
+## Performance A/B (same method as [ad106-asus-z790](../ad106-asus-z790/report.md) `bench/bench_gemm.py`)
+
+Torch `torch.mm`, contiguous `randn`, FP32 accumulate forced, warm-up + 20 timed iterations × 2 passes, median.
+Unlocked side measured in the unlock boot session (ssdiag `UNLOCKED` in the same session); stock side after a full
+power-down cycle with the relock re-confirmed by ssdiag `NOT_UNLOCKED` (`PLM 0xffffff8f`, `SS0 0x16547115`,
+`SS1 0x5`, `READOUT_1 0x00400080` — identical to the locked baseline above). Same conditions both sides:
+AC power, lid open, RUN offline, torch 2.10.0+cu130 / driver 616.56. Both sides sit at the VBIOS 130 W
+board limit (`POWER-CAPPED` on every row) with throttled clocks bouncing ~1245–1785 MHz, so the per-clock
+column (`TFLOPS/GHz`) is the primary comparison axis, exactly as the throughput-is-clock-limited note in the FAQ predicts.
+
+| Case (N) | stock | unlocked | abs × | per-clock × |
+| --- | --- | --- | --- | --- |
+| FP32 control (4096) | 9.61 | 9.62 | **1.00×** | 0.98× |
+| TF32 (4096) | 19.64 | 30.91 | 1.57× | 1.78× |
+| FP16 (4096) | 39.46 | 62.24 | 1.58× | 1.82× |
+| FP16 (8192) | 40.42 | 62.98 | 1.56× | 1.98× |
+| BF16 (4096) | 40.03 | 69.53 | 1.74× | 2.25× |
+| BF16 (8192) | 40.05 | 61.32 | 1.53× | 1.95× |
+
+TFLOPS medians; raw data: [bench-stock.json](bench-stock.json), [bench-unlocked.json](bench-unlocked.json).
+
+Falsifiability checks hold:
+
+- **FP32 strict control is flat (1.00×)** — the lock/unlock signal is the tensor issue rate, not clocks or power;
+- **numerical error vs FP64 identical in both states** (fp16 2.63e-4 / 2.77e-4, bf16 2.09e-3 / 2.05e-3 — same
+  magnitude as the ad106 reference card);
+- tensor per-clock gain band 1.78–2.25× matches the GA10x mobile reports ([#27](https://github.com/physicsdolphin/nv-uefi-unlocker/issues/27)
+  ≈1.58×, [#71](https://github.com/physicsdolphin/nv-uefi-unlocker/issues/71) ≈1.83–1.86×) — `249c` ships from
+  the factory with the same full-power segmentation clamp as its GA10x mobile siblings.
+
 ## Caveats / limitations of this report
 
-- No GEMM/MMA ALU-verification benchmark was run on this unit; the verification chain is the EFI
-  read-backs + FLR survival + the in-OS ssdiag verdict + the driver-visible TGP envelope. A follow-up
-  cuBLAS/mma number would complete the tier.
+- All GPU benchmark rows are power-capped at the VBIOS 130 W board limit at this chassis' throttled clock
+  band; absolute TFLOPS therefore understate a derestrained desktop-style card. Per-clock is the
+  faithful axis (see above). No MMA instruction-rate microbenchmark was run; the cuBLAS path is the verified one.
 - The loader emitted `SCRUB: SEC2 fired but handoff stuck at 1` → `scrubber did not complete (ETimeout) - proceeding
   without it (community chain shape)`; transaction verified end-to-end regardless. Worth watching on other GA102M runs.
 - `FEAT_OVR_PLM` remained AON-surviving as expected; WPR_PLM/WPR_CFG_PLM/FBPA_PLM remain closed

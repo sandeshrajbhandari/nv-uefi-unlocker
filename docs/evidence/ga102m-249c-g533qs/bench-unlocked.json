@@ -1,0 +1,159 @@
+{
+  "label": "unlocked",
+  "time": "2026-11-01 00:36:43",
+  "torch": "2.10.0+cu130",
+  "cuda": "13.0",
+  "device": "NVIDIA GeForce RTX 3080 Laptop GPU",
+  "driver": "616.56",
+  "power_limit_w": "[N/A]",
+  "rows": [
+    {
+      "case": "FP32 (control)",
+      "n": 4096,
+      "pass": 1,
+      "median": 9.73,
+      "min": 9.53,
+      "max": 9.82,
+      "clock_mhz": "1245",
+      "power_w": "71.00",
+      "power_capped": true,
+      "tflops_per_ghz": 7.81
+    },
+    {
+      "case": "TF32",
+      "n": 4096,
+      "pass": 1,
+      "median": 31.14,
+      "min": 30.55,
+      "max": 31.51,
+      "clock_mhz": "1245",
+      "power_w": "71.00",
+      "power_capped": true,
+      "tflops_per_ghz": 25.02
+    },
+    {
+      "case": "FP16",
+      "n": 4096,
+      "pass": 1,
+      "median": 63.37,
+      "min": 59.15,
+      "max": 78.67,
+      "clock_mhz": "1770",
+      "power_w": "99.11",
+      "power_capped": true,
+      "tflops_per_ghz": 35.8
+    },
+    {
+      "case": "FP16",
+      "n": 8192,
+      "pass": 1,
+      "median": 63.73,
+      "min": 63.41,
+      "max": 64.5,
+      "clock_mhz": "1335",
+      "power_w": "121.08",
+      "power_capped": true,
+      "tflops_per_ghz": 47.74
+    },
+    {
+      "case": "BF16",
+      "n": 4096,
+      "pass": 1,
+      "median": 78.56,
+      "min": 62.34,
+      "max": 79.32,
+      "clock_mhz": "1335",
+      "power_w": "121.08",
+      "power_capped": true,
+      "tflops_per_ghz": 58.85
+    },
+    {
+      "case": "BF16",
+      "n": 8192,
+      "pass": 1,
+      "median": 61.6,
+      "min": 57.25,
+      "max": 61.94,
+      "clock_mhz": "1305",
+      "power_w": "123.26",
+      "power_capped": true,
+      "tflops_per_ghz": 47.2
+    },
+    {
+      "case": "FP32 (control)",
+      "n": 4096,
+      "pass": 2,
+      "median": 9.51,
+      "min": 8.34,
+      "max": 9.69,
+      "clock_mhz": "1245",
+      "power_w": "128.57",
+      "power_capped": true,
+      "tflops_per_ghz": 7.63
+    },
+    {
+      "case": "TF32",
+      "n": 4096,
+      "pass": 2,
+      "median": 30.68,
+      "min": 27.92,
+      "max": 31.13,
+      "clock_mhz": "1245",
+      "power_w": "128.57",
+      "power_capped": true,
+      "tflops_per_ghz": 24.64
+    },
+    {
+      "case": "FP16",
+      "n": 4096,
+      "pass": 2,
+      "median": 61.11,
+      "min": 60.08,
+      "max": 61.37,
+      "clock_mhz": "1245",
+      "power_w": "128.57",
+      "power_capped": true,
+      "tflops_per_ghz": 49.08
+    },
+    {
+      "case": "FP16",
+      "n": 8192,
+      "pass": 2,
+      "median": 62.23,
+      "min": 59.99,
+      "max": 63.69,
+      "clock_mhz": "1305",
+      "power_w": "129.69",
+      "power_capped": true,
+      "tflops_per_ghz": 47.69
+    },
+    {
+      "case": "BF16",
+      "n": 4096,
+      "pass": 2,
+      "median": 60.5,
+      "min": 58.66,
+      "max": 62.66,
+      "clock_mhz": "1305",
+      "power_w": "129.69",
+      "power_capped": true,
+      "tflops_per_ghz": 46.36
+    },
+    {
+      "case": "BF16",
+      "n": 8192,
+      "pass": 2,
+      "median": 61.04,
+      "min": 59.92,
+      "max": 61.91,
+      "clock_mhz": "1305",
+      "power_w": "129.77",
+      "power_capped": true,
+      "tflops_per_ghz": 46.78
+    }
+  ],
+  "max_rel_error": {
+    "fp16": 0.00026341134352617486,
+    "bf16": 0.00208783608265841
+  }
+}
