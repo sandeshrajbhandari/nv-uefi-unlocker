@@ -1,0 +1,125 @@
+[INFO ] loader::logging: log file \loader.log opened on boot volume
+[INFO ] loader::logging: nv-uefi-unloader v2.1.8 (M0 skeleton: read-only)
+[INFO ] loader: WATCHDOG: disabled
+[INFO ] loader::banner: ==================================================
+[INFO ] loader::banner:  nv-uefi-unlocker v2.1.8 (built Sat 2026-10-31 23:33:55 +08:00)
+[INFO ] loader::banner:  ** TX BUILD: CONTAINS GPU-WRITE PATHS **
+[INFO ] loader::banner:  transaction: claim->gfw->fwsec->booter->selectors->flr
+[INFO ] loader::banner: ======== PRESS SPACE or ENTER to CONTINUE ========
+[INFO ] loader::banner: ======== PRESS SPACE or ENTER to CONTINUE ========
+[INFO ] loader::banner: ======== PRESS SPACE or ENTER to CONTINUE ========
+[INFO ] loader::banner:   other key or 30s no-key = ABORT; unlocks NOTHING
+[INFO ] loader::banner:   other key or 30s no-key = ABORT; unlocks NOTHING
+[INFO ] loader::banner:   other key or 30s no-key = ABORT; unlocks NOTHING
+[INFO ] loader::banner:  armed: \i_know_what_i_am_doing.txt = 5s auto-run, any key aborts
+[INFO ] loader::banner:  multi-GPU: no marker = every supported card in order;
+[INFO ] loader::banner:             \tx-select-bdf.txt (bb:dd.f) pins exactly one
+[INFO ] loader::banner:  failure = no retry (per card; the next card still runs)
+[INFO ] loader::banner: ==================================================
+[INFO ] loader::banner: PHASE: CONFIRM
+[INFO ] loader: CONFIRM: no armed marker - Space/Enter/30s confirm semantics
+[INFO ] loader::keywait: CONFIRM: 30s timeout - ABORT to Windows, NOTHING was unlocked this boot (zero GPU writes)
+[INFO ] loader::pci: PHASE: ENUMERATE (read-only)
+[INFO ] loader::pci: ENUMERATE: 32 PciIo handles
+[INFO ] loader::pci: PCI 0000:00:00.0 1022:1630 class 000600
+[INFO ] loader::pci: PCI 0000:00:00.2 1022:1631 class 000806
+[INFO ] loader::pci: PCI 0000:00:01.0 1022:1632 class 000600
+[INFO ] loader::pci: PCI 0000:00:01.1 1022:1633 class 000604
+[INFO ] loader::pci: PCI 0000:01:00.0 10de:249c class 000300
+[INFO ] loader::pci: NVIDIA GPU? 0000:01:00.0 device 249c
+[INFO ] loader::pci:   BAR0 32-bit mem base 0xfb000000
+[INFO ] loader::pci:   BAR1 64-bit mem base 0x000000f800000000
+[INFO ] loader::pci:   BAR3 64-bit mem base 0x000000fc00000000
+[INFO ] loader::pci:   BAR5 io base 0xf000
+[INFO ] loader::pci:   cap 0x01 @0x60
+[INFO ] loader::pci:   cap 0x05 @0x68
+[INFO ] loader::pci:   PCIe cap @0x78: DEVCAP 0x112c8de1 (FLR yes) LINKCAP 0x00454d04
+[INFO ] loader::pci:   cap 0x09 @0xb4
+[INFO ] loader::pci:   ext cap 0x0002 @0x0100
+[INFO ] loader::pci:   ext cap 0x0018 @0x0250
+[INFO ] loader::pci:   ext cap 0x001e @0x0258
+[INFO ] loader::pci:   ext cap 0x0004 @0x0128
+[INFO ] loader::pci:   ext cap 0x0001 @0x0420
+[INFO ] loader::pci:   ext cap 0x000b @0x0600
+[INFO ] loader::pci:   ext cap 0x0019 @0x0900
+[INFO ] loader::pci:   ReBAR cap @0x0bb0: 0 resizable BAR(s)
+[INFO ] loader::pci:   ext cap 0x0026 @0x0c1c
+[INFO ] loader::pci:   ext cap 0x0027 @0x0d00
+[INFO ] loader::pci:   ext cap 0x0025 @0x0e00
+[INFO ] loader::pci: PCI 0000:01:00.1 10de:228b class 000403
+[INFO ] loader::pci: NVIDIA fn 0000:01:00.1 device 228b
+[INFO ] loader::pci:   BAR0 32-bit mem base 0xfc080000
+[INFO ] loader::pci:   cap 0x01 @0x60
+[INFO ] loader::pci:   cap 0x05 @0x68
+[INFO ] loader::pci:   PCIe cap @0x78: DEVCAP 0x012c8de1 (FLR no) LINKCAP 0x00454d04
+[INFO ] loader::pci:   ext cap 0x0001 @0x0100
+[INFO ] loader::pci:   ext cap 0x0025 @0x0160
+[INFO ] loader::pci: PCI 0000:00:02.0 1022:1632 class 000600
+[INFO ] loader::pci: PCI 0000:00:02.1 1022:1634 class 000604
+[INFO ] loader::pci: PCI 0000:02:00.0 10ec:8168 class 000200
+[INFO ] loader::pci: PCI 0000:00:02.2 1022:1634 class 000604
+[INFO ] loader::pci: PCI 0000:03:00.0 8086:2723 class 000280
+[INFO ] loader::pci: PCI 0000:00:02.4 1022:1634 class 000604
+[INFO ] loader::pci: PCI 0000:04:00.0 1c5c:174a class 000108
+[INFO ] loader::pci: PCI 0000:00:08.0 1022:1632 class 000600
+[INFO ] loader::pci: PCI 0000:00:08.1 1022:1635 class 000604
+[INFO ] loader::pci: PCI 0000:05:00.0 1002:1638 class 000300
+[INFO ] loader::pci: PCI 0000:05:00.1 1002:1637 class 000403
+[INFO ] loader::pci: PCI 0000:05:00.2 1022:15df class 001080
+[INFO ] loader::pci: PCI 0000:05:00.3 1022:1639 class 000c03
+[INFO ] loader::pci: PCI 0000:05:00.4 1022:1639 class 000c03
+[INFO ] loader::pci: PCI 0000:05:00.5 1022:15e2 class 000480
+[INFO ] loader::pci: PCI 0000:05:00.6 1022:15e3 class 000403
+[INFO ] loader::pci: PCI 0000:00:14.0 1022:790b class 000c05
+[INFO ] loader::pci: PCI 0000:00:14.3 1022:790e class 000601
+[INFO ] loader::pci: PCI 0000:00:18.0 1022:166a class 000600
+[INFO ] loader::pci: PCI 0000:00:18.1 1022:166b class 000600
+[INFO ] loader::pci: PCI 0000:00:18.2 1022:166c class 000600
+[INFO ] loader::pci: PCI 0000:00:18.3 1022:166d class 000600
+[INFO ] loader::pci: PCI 0000:00:18.4 1022:166e class 000600
+[INFO ] loader::pci: PCI 0000:00:18.5 1022:166f class 000600
+[INFO ] loader::pci: PCI 0000:00:18.6 1022:1670 class 000600
+[INFO ] loader::pci: PCI 0000:00:18.7 1022:1671 class 000600
+[INFO ] loader::gop: PHASE: GOP-PROBE (read-only)
+[INFO ] loader::gop: GOP-PROBE: locate failed: NOT_FOUND
+[INFO ] loader::sample: PHASE: SAMPLE (M1 read-only cold state)
+[INFO ] loader::sample: SAMPLE: GPU 10de:249c @ 0000:01:00.0
+[INFO ] loader::sample: SAMPLE PMC_BOOT_0 chip-id = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE FB_SIZE_MIB 0x1183a4 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE VGA_WORKSPACE 0x625f04 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE GFW_PLM 0x118128 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE GFW_SCRATCH 0x118234 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE GSP_CPUCTL 0x110100 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE PGC6_BSI_SCRATCH15 0x1180fc = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE MMU_PLM 0x1fa7c8 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE MMU_LOCK_LO 0x1fa82c = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE MMU_LOCK_HI 0x1fa830 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE WPR2_LO 0x1fa824 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE WPR2_HI 0x1fa828 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE SEC2_CPUCTL 0x840100 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE FUSE_OPT_FEAT_OVR_DISABLE 0x8203f0 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE FUSE_VER 0x824140 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE FUSE_VER_DECODE 0x8241c0 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE AD1xx CYA 0x88724 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE AD1xx CFG 0x88dcc = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE AD1xx XVE_PLM 0x88ff4 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE AD1xx BAR1_CAP_MIRROR 0x88bbc = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE ADA WPR_PLM 0x1fa7c4 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE ADA WPRCFG_PLM 0x1fa7cc = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE ADA FBPA_PLM 0x9a0148 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE TU10x FEAT_PLM 0x409650 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE TU10x FEAT_SS0 0x409664 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE TU10x FEAT_READOUT 0x409668 = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE FEAT sweep 0x823800-0x82382f+0x823b00 (dword stride): 0 ok / 0 badf / 13 all-ones / 0 read-errors
+[INFO ] loader::sample: SAMPLE: BAR0 not decoding at sample time (all-ones) - MEM enable happens in the claim; a card that stays all-ones after it is powered off (D3cold)
+[INFO ] loader::sample: SAMPLE FEAT_READOUT_1 = 0xffffffff (0 = no compute throttle active)
+[INFO ] loader::sample: SAMPLE PSTRAPS SET0 0x101000 = 0xffffffff [NO_DECODE] / SET1 0x10100c = 0xffffffff [NO_DECODE]
+[INFO ] loader::sample: SAMPLE NV_PROM first 0x10000 bytes: crc32 0xdeab7e4e, magic 0xffffffff (window all-ones - CRC not an identity)
+[INFO ] loader::sample: SAMPLE complete (read-only, nothing restored because nothing touched)
+[INFO ] loader::chainload: PHASE: CHAIN
+[INFO ] loader::chainload: CHAIN: reconnect pass over 32 PciIo handles (NVIDIA display skipped)
+[INFO ] loader::chainload: CHAIN: reconnect skipped on NVIDIA display Handle(0xea1a9998)
+[INFO ] loader::chainload: CHAIN: reconnect pass done
+[INFO ] loader::chainload: CHAIN: 2 SimpleFileSystem handles
+[INFO ] loader::chainload: CHAIN: loader found on Handle(0xe7e95b98): \EFI\Microsoft\Boot\bootmgfw.efi
+[INFO ] loader::chainload: CHAIN: LoadImage (FromDevicePath)

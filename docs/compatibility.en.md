@@ -54,6 +54,7 @@ Mobile, workstation, CMP and modded devices within a supported family use that f
 | AD103 | 4080S 2702 / 4080 2704 / 4070TiS 2705 / **4070 2709** / 4090M 2757 | ✅ 2704/2705/2709; 🟢 2702/2757 · [Details](#device-7) |
 | AD102 | 4090 2684 / 4090D 2685 / 4070TiS **2689** | ✅ 2684/2689; 🟢 2685 · [Details](#device-8) |
 | GA102 | 3090 2204 / **3080 2206** / **3080 LHR 2216** / 3080 Ti 2208 / 3070 Ti 2205 etc. (whole 0x22xx range routed) | ✅ 2206/2216; others fully routed · [Details](#device-9) |
+| GA102M | 3080 Laptop **249c** (`24a0`–`24ff` mobile span not otherwise listed) | ✅ 249c; MUX-less Cezanne, hybrid caveats · [Details](#device-19) |
 | GA103M | 3080 Ti Laptop **2420** | ✅ 2420 · [Details](#device-10) |
 | GA104 | 3070 2484–248c / 3060 Ti **2489** etc. (whole 0x24xx range routed) | ✅ 2489; 2484 EFI-only, lost in Windows · [Details](#device-11) |
 | GA104M | 3070 Laptop **249d** | ✅ 249d; hybrid exceptions · [Details](#device-12) |
@@ -175,3 +176,17 @@ Unsupported: no corresponding transaction path.
 ### Blackwell (50 series) / GA100 · —
 
 Unsupported: a different boot chain from this tool’s transaction families.
+
+<a id="device-19"></a>
+
+### GA102M · 3080 Laptop 249c
+
+`249c` passes full-chain EFI-to-Windows verification on an ASUS ROG Strix G533QS: PLM flip to `0xffffffff`,
+SS0/SS1 `0x88888888/0x8`, read-back after FLR and in-OS `ssdiag` verdict `UNLOCKED`, driver TGP envelope restored.
+See the field report for the hybrid specifics: the all-ones BAR sweep at UEFI SAMPLE is the D3cold norm, not an
+uninitialized card; confirm happens on the iGPU panel (MUX-less), and the unlock is volatile — re-apply after
+every full power-off (stick-armed marker optional). MUX-less Optimus machines should also expect the screen to
+stay dark between confirm and Windows boot. GA104M `249d` ([#28](https://github.com/physicsdolphin/nv-uefi-unlocker/issues/28))
+is the adjacent AMD-platform mobile evidence; the confirm flow differs there (dGPU-direct) and this run reused the
+warm-resume visible panel of the connected iGPU. Performance tier still pending follow-up ALU-verification numbers.
+Sources: [GA102M field report](evidence/ga102m-249c-g533qs/report.md).

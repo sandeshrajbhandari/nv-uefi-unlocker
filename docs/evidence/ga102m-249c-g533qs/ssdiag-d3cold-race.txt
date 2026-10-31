@@ -1,0 +1,21 @@
+﻿=== --reapply (exit 1) ===
+1 NVIDIA GPU function(s) discovered
+===== GPU 1/1: PCI\VEN_10DE&DEV_249C&SUBSYS_16021043&REV_A1\4&1BA6DC09&0&0009 =====
+ranges:
+  fb000000-fbffffff (16 MiB)
+  fc00000000-fc01ffffff (32 MiB)
+NVAPI wake unavailable: nvapi.dll not loadable - NVIDIA driver installed?
+BAR0: fb000000
+BAR0 reads all ones - still degenerate after GC6 wake attempt: device D3 / MEM decode off / driver unbound; nothing to diagnose
+driver service removed (remove-when-done)
+
+=== read-only verify ===
+1 NVIDIA GPU function(s) discovered
+===== GPU 1/1: PCI\VEN_10DE&DEV_249C&SUBSYS_16021043&REV_A1\4&1BA6DC09&0&0009 =====
+ranges:
+  fb000000-fbffffff (16 MiB)
+  fc00000000-fc01ffffff (32 MiB)
+NVAPI wake unavailable: nvapi.dll not loadable - NVIDIA driver installed?
+BAR0: fb000000
+BAR0 reads all ones - still degenerate after GC6 wake attempt: device D3 / MEM decode off / driver unbound; nothing to diagnose
+driver service removed (remove-when-done)
